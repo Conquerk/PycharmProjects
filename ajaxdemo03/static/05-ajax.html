@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script>
+        $(function () {
+            function check_login() {
+                var ret = false;
+                var url = "/05-ajax";
+                var parents = "lname="+$("#lname").val();
+                /*$.get(url,parents,function (data) {
+                    if (data.status==1){
+                        $("#lname-show").html(data.text);
+                        ret = true;
+                    }else{
+                        $("#lname-show").html(data.text);
+                    }
+                },"json");*/
+                $.ajax({
+                    url:url,
+                    data:parents,
+                    type:'get',
+                    datatype:'json',
+                    async:false,
+                    success:function (data) {
+                        if (data.status==1){
+                            $("#lname-show").html(data.text);
+                            ret = true;
+                    }else{
+                            $("#lname-show").html(data.text);
+                    }
+                    }
+                })
+                return ret;
+            }
+            $("#lname").blur(check_login);
+            //为注册绑定事件
+            $("#btnReg").click(function () {
+                var ret = check_login();
+                if(ret){
+                    alert('不能注册')
+                }else{
+                     var params = {
+                        'lname':$("#lname").val(),
+                        "lpwd":$("#lpwd").val(),
+                        "uname":$("#uname").val()
+                    }
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <p>
+            登录名称：<input type="text" id="lname">
+            <sapn id="lname-show"></sapn>
+        </p>
+        <p>
+            登录密码：<input type="password" id="lpwd">
+        </p>
+        <p>
+            用户名称：<input type="text" id="uname">
+        </p>
+        <p>
+            <button id="btnReg">注册</button>
+        </p>
+    </div>
+</body>
+</html>

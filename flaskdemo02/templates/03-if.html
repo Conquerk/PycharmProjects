@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if age > 60 %}
+        <h1>老年人</h1>
+    {% elif age <=30 %}
+        <h1>青年人</h1>
+    {% else %}
+        <h1>中年人</h1>
+    {% endif %}
+
+
+    {% if uname %}
+        <h1>欢迎{{uname}}</h1>
+    {% else %}
+    <h1>
+        <a href="/lojin">登录</a>
+    </h1>
+    {% endif %}
+</body>
+</html>

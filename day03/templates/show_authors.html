@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table width="400px" border="1px">
+    <tr align="center">
+        <td>ID</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>邮箱</td>
+        <td>操作</td>
+    </tr>
+        {% for author in authors %}
+            <tr align="center">
+            <td>{{ author.id }}</td>
+            <td>{{ author.name }}</td>
+            <td>{{ author.age }}</td>
+            <td>{{ author.email }}</td>
+            <td>
+                <a href="05-delete/{{ author.id }}/">删除</a>
+                <a href="#">修改</a>
+            </td>
+            </tr>
+        {% endfor %}
+</table>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>循环遍历 params.list中的每个元素</h1>
+    <ul>
+    {% for name in params.list %}
+        <li>
+            <h2>{{name}}</h2>
+        </li>
+    {% endfor %}
+    </ul>
+    <h1>循环ｄｉｃ中的键</h1>
+    {% for key in params.dic.keys() %}
+        <h2>{{key}}</h2>
+    {% endfor %}
+    <h1>循环遍历值</h1>
+    {% for value in params.dic.values() %}
+        <h2>=======================</h2>
+        <h2>
+            当前循环次数：{{loop.index}}<br>
+            当前循环下表：{{loop.index0}}<br>
+            当前循环是否为第一次：{{loop.first}}<br>
+            当前循环是否为最后一次：{{loop.last}}<br>
+        </h2>
+        <!--如果是第一次，h2的背景色为ｒｅｄ
+        　   如果是最后一次,h2的背景色为ｏｒａｎｇｅ
+            如果都不是,h2的背景色为ｐｉｎｋ
+        -->
+        {% if loop.first %}
+            <h2 style="background-color:red;">{{value}}</h2>
+        {% elif loop.last %}
+            <h2 style="background-color:orange;">{{value}}</h2>
+        {% else %}
+            <h2 style="background-color:pink;">{{value}}</h2>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

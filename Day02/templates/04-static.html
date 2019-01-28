@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>使用/static/访问静态文件</h1>
+<img src="/static/images/wxy.jpeg" >
+<h1>使用static标签的方式访问静态文件</h1>
+<img src="{% static 'images/wxy.jpeg' %}" >
+</body>
+</html>

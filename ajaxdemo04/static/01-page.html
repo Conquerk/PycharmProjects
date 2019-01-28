@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script>
+        /*处理后端业务的方法*/
+        function abcdefg(data) {
+            alert("这是在前端处理的后端的数据："+data);
+        }
+
+        $(function () {
+            $("#btnSend").click(function () {
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "http://127.0.0.1:5000/01-server?callback=abcdefg";
+                var body = document.getElementsByTagName('body')[0];
+                body.append(script);
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+    <button id="btnSend">发送请求</button>
+</body>
+</html>

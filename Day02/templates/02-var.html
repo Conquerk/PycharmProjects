@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>标签实现</h1>
+{% for name in list%}
+    <p style="color:
+            {% if forloop.first %}
+                red
+            {% elif forloop.last %}
+                yellow
+            {% else %}
+                pink
+            {% endif %}
+    ">{{ name }}</p>
+{% endfor %}
+
+    <h1>str:{{ str }}</h1>
+    <h1>num:{{ num }}</h1>
+    <h1>tup:{{ tup }}</h1>
+    <h1>tup[0]:{{ tup.0 }}</h1>
+    <h1>list:{{ list }}</h1>
+    <h1>list[0]:{{ list.0 }}</h1>
+    <h1>dic:{{ dic }}</h1>
+    <h1>dic['BJ']:{{ dic.BJ }}</h1>
+    <h1>dog:{{ dog }}</h1>
+    <h1>dog.name:{{ dog.name }}</h1>
+    <h1>dog.eat():{{ dog.eat }}</h1>
+    <h1>ret:{{ ret }}</h1>
+</body>
+</html>
